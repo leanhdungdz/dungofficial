@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 VIP HOLOGRAM SYSTEM | Dũng Official</title>
+    
+    <!-- Tải Font tương lai siêu đẹp -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color1: #ff007f; /* Hot Pink */
+            --color2: #00f3ff; /* Cyan */
+            --color3: #7000ff; /* Purple */
+            --color4: #ffea00; /* Yellow */
+            --zalo-blue: #0068ff; /* Zalo Brand Color */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #070714;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden; /* Ngăn cuộn ngang */
+            position: relative;
+        }
+
+        /* --- BACKGROUND FLUID AURORA --- */
+        .aurora-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            overflow: hidden;
+            z-index: 0;
+            background: #000;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.7;
+            animation: moveBlob 15s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .blob-1 { width: 50vw; height: 50vw; background: var(--color1); top: -10%; left: -10%; }
+        .blob-2 { width: 60vw; height: 60vw; background: var(--color2); bottom: -20%; right: -10%; animation-delay: -3s; }
+        .blob-3 { width: 45vw; height: 45vw; background: var(--color3); top: 30%; left: 40%; animation-delay: -7s; }
+
+        @keyframes moveBlob {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(10vw, 15vh) scale(1.2) rotate(180deg); }
+            100% { transform: translate(-5vw, 10vh) scale(0.8) rotate(360deg); }
+        }
+
+        /* --- MAGIC GLOWING BORDER CARD --- */
+        .card-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 92%;
+            max-width: 550px; /* To hơn trên PC */
+            border-radius: 24px;
+            padding: 4px; /* Độ dày của viền LED */
+            background: linear-gradient(45deg, var(--color1), var(--color2), var(--color3), var(--color4));
+            background-size: 400% 400%;
+            animation: gradientBorder 5s ease infinite;
+            box-shadow: 0 0 40px rgba(255, 0, 127, 0.4), 0 0 80px rgba(0, 243, 255, 0.2);
+            margin: 20px 0; /* Cách lề trên dưới khi màn hình nhỏ bị cuộn */
+        }
+
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Nội dung thẻ (Kính mờ Hologram) */
+        .glass-card {
+            background: rgba(10, 10, 25, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* Chữ Tiêu đề lấp lánh */
+        .title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 30px;
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            background: linear-gradient(to right, #fff, var(--color2), var(--color1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #a0a0b0;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            line-height: 1.6;
+        }
+
+        /* --- BOX TÀI KHOẢN --- */
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hiệu ứng tia sáng xẹt qua Box */
+        .info-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+            transform: skewX(-25deg);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .info-row:last-child { margin-bottom: 0; }
+
+        .info-text-group {
+            text-align: left;
+            word-break: break-all;
+            padding-right: 10px;
+        }
+
+        .info-label { font-size: 12px; color: #888; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; }
+        .info-value { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: 0.5px; }
+
+        /* Nút Copy Hologram */
+        .btn-copy {
+            background: linear-gradient(45deg, rgba(255,0,127,0.2), rgba(0,243,255,0.2));
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .btn-copy:hover, .btn-copy.active {
+            background: linear-gradient(45deg, var(--color1), var(--color2));
+            box-shadow: 0 0 15px var(--color1), 0 0 25px var(--color2);
+            border-color: transparent;
+            transform: scale(1.05);
+        }
+
+        /* --- KHU VỰC THÔNG BÁO DỊCH VỤ MINECRAFT --- */
+        .vip-notice {
+            margin-top: 25px;
+            padding: 22px 25px;
+            background: rgba(0, 243, 255, 0.05);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 16px;
+            position: relative;
+            animation: pulseGlow 2.5s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1), 0 0 15px rgba(0, 243, 255, 0.1); }
+            100% { box-shadow: inset 0 0 25px rgba(0, 243, 255, 0.3), 0 0 25px rgba(0, 243, 255, 0.3); }
+        }
+
+        .notice-title {
+            font-size: 16px;
+            color: var(--color2);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+        }
+
+        /* Cấu trúc danh sách dịch vụ */
+        .minecraft-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .minecraft-list li {
+            font-size: 14px;
+            color: #d0d0e0;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            font-weight: 500;
+        }
+
+        .minecraft-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .minecraft-list .icon {
+            color: var(--color2);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .highlight-zalo {
+            color: var(--color4);
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 234, 0, 0.5);
+        }
+
+        .highlight-price {
+            color: var(--color1);
+            font-weight: 800;
+            font-size: 15px;
+            margin: 0 4px;
+            text-shadow: 0 0 12px rgba(255, 0, 127, 0.7);
+        }
+
+        /* --- NÚT ZALO TÍCH HỢP --- */
+        .zalo-section {
+            margin-top: 25px;
+            text-align: center;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+        }
+
+        .zalo-text-prompt {
+            font-size: 12px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+
+        .btn-zalo-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #0052cc, var(--zalo-blue));
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(0, 104, 255, 0.5), 0 0 30px rgba(0, 104, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .btn-zalo-link:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 104, 255, 0.8), 0 0 40px rgba(0, 104, 255, 0.5);
+            background: linear-gradient(45deg, var(--zalo-blue), #00c6ff);
+        }
+
+        /* ========================================================= */
+        /* ============ CSS RESPONSIVE CHO ĐIỆN THOẠI ============== */
+        /* ========================================================= */
+        @media screen and (max-width: 600px) {
+            .glass-card {
+                padding: 30px 15px; /* Giảm padding hai bên */
+            }
+
+            .title {
+                font-size: 22px; /* Chữ nhỏ lại để không bị rớt dòng xấu */
+            }
+
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .info-box {
+                padding: 15px;
+            }
+
+            .info-value {
+                font-size: 14px; /* ID và Pass vừa đủ nhìn trên đt */
+            }
+
+            .btn-copy {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+
+            .vip-notice {
+                padding: 15px;
+            }
+
+            .notice-title {
+                font-size: 14px;
+            }
+
+            .minecraft-list li {
+                font-size: 12px;
+            }
+
+            .highlight-price {
+                font-size: 13px;
+            }
+
+            .btn-zalo-link {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nền chất lỏng đa sắc -->
+    <div class="aurora-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Khung thẻ có viền LED chạy -->
+    <div class="card-wrapper">
+        <div class="glass-card">
+            <h1 class="title">Tài khoản App Store <br>👑 Dũng Official 👑</h1>
+            <div class="subtitle">
+                Nếu có vấn đề gì liên hệ<br>Zalo: 0374441338 để được hỗ trợ<br><br>
+                ⭐ Vì là TK cộng đồng nên nhanh khóa, nếu khóa hãy cmt hoặc nhắn tin riêng để mình biết cập nhật ID mới ⭐
+            </div>
+
+            <div class="info-box">
+                <div class="info-row">
+                    <div class="info-text-group">
+                        <div class="info-label">Apple ID</div>
+                        <div class="info-value" id="apple-id">aptec.extapiv@gmail.com</div>
+                    </div>
+                    <button class="btn-copy" onclick="copyAction('apple-id', this)">Copy ID</button>
+                </div>
+                <div class="info-row" style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                    <div class="info-text-group">
+                        <div class="info-label">Password</div>
+                        <div class="info-value" id="apple-pass">ptMir82</div>
+                    </div>
+                    <button class="btn-copy" onclick="copyAction('apple-pass', this)">Copy Pass</button>
+                </div>
+            </div>
+
+            <!-- Khu vực thông báo Dịch vụ Minecraft siêu bắt mắt -->
+            <div class="vip-notice">
+                <div class="notice-title">✦ DỊCH VỤ MINECRAFT VIP ✦</div>
+                <ul class="minecraft-list">
+                    <li><span class="icon">➥</span> <span>Thuê TK AppStore có Minecraft inbox Zalo: <span class="highlight-zalo">"0374441338"</span></span></li>
+                    <li><span class="icon">➥</span> <span>Giá TK Minecraft sale chỉ còn: <span class="highlight-price">10k</span></span></li>
+                    <li><span class="icon">➥</span> <span>Mua thẳng Minecraft <span class="highlight-price">140k</span> có trên TK App Store chính chủ người mua</span></li>
+                    <li><span class="icon">➥</span> <span>Tải về có hướng dẫn cài tiếng Việt</span></li>
+                    <li><span class="icon">➥</span> <span>Và có hướng dẫn cài Shader cho iOS nhé</span></li>
+                </ul>
+
+                <!-- Khu vực Nút Zalo mới thêm -->
+                <div class="zalo-section">
+                    <div class="zalo-text-prompt">HÃY ẤN VÀO ĐÂY ĐỂ LIÊN HỆ</div>
+                    <a href="http://zalo.me/84374441338" target="_blank" class="btn-zalo-link">
+                        Nhắn Tin Zalo
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Script Copy mượt mà -->
+    <script>
+        function copyAction(elementId, btn) {
+            var text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                let originalText = btn.innerText;
+                btn.innerText = "COPIED! ✔";
+                btn.classList.add("active");
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove("active");
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
